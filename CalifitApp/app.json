@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "CalifitApp",
+    "slug": "CalifitApp",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
