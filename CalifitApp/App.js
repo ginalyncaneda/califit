@@ -1,41 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, ActivityIndicator, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, ActivityIndicator } from 'react-native';
+import SplashScreen from './components/SplashScreen';
 import MainPage from './components/MainPage';
 
 export default function App() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [showWelcome, setShowWelcome] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate a delay (e.g., 3 seconds) before setting isLoading to false
-    const timeout = setTimeout(() => {
-      setIsLoading(false);
+    const timer = setTimeout(() => {
+      setLoading(false);
     }, 3000);
 
-    return () => clearTimeout(timeout); // Cleanup the timeout on component unmount
-  }, []); // Empty dependency array ensures the effect runs only once
-
-  const handleStartPress = () => {
-    setShowWelcome(false);
-  };
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
-    <View style={styles.container}>
-      {isLoading ? (
-        <ActivityIndicator size="large" color="#0000ff" />
+    <View style={[styles.container, { backgroundColor: '#F9E79F' }]}>
+      {loading ? (
+        <SplashScreen />
       ) : (
-        <>
-          {showWelcome && (
-            <>
-              <Text style={{fontSize: 24}}>Welcome to CaliFit!</Text>
-              <TouchableOpacity style={styles.button} onPress={handleStartPress}>
-                <Text style={styles.buttonText}>Let's start</Text>
-              </TouchableOpacity>
-            </>
-          )}
-          {/* Add your main screen components here */}
-          {!showWelcome && <MainPage />}
-        </>
+        <MainPage />
       )}
     </View>
   );
@@ -44,19 +28,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F9E79F',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  button: {
-    marginTop: 50,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    backgroundColor: '#922B21',
-    borderRadius: 5,
-  },
-  buttonText: {
-    color: '#fff', // Text color
-    fontSize: 16,
   },
 });
