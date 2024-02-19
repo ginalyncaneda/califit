@@ -1,11 +1,12 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { useNavigation } from '@react-navigation/native'; // Import useNavigation hook
 import welcomepic from '../images/welcomepic.png';
 
 const WelcomePage = () => {
+  const navigation = useNavigation(); // Initialize navigation
   const handleRegistration = () => {
-    // Handle navigation or any other action when the button is pressed
-    console.log('Start Your Journey');
+    navigation.navigate('UserRegistration'); // Navigate to UserRegistration screen
   };
 
   return (
