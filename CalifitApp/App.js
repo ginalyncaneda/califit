@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, ActivityIndicator } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
 import SplashScreen from './components/SplashScreen';
 import MainPage from './components/MainPage';
+import UserRegistration from './components/UserRegistration';
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -15,13 +17,15 @@ export default function App() {
   }, []);
 
   return (
-    <View style={[styles.container, { backgroundColor: '#F9E79F' }]}>
-      {loading ? (
-        <SplashScreen />
-      ) : (
-        <MainPage />
-      )}
-    </View>
+    <NavigationContainer>
+      <View style={[styles.container, { backgroundColor: '#F9E79F' }]}>
+        {loading ? (
+          <SplashScreen />
+        ) : (
+          <UserRegistration />
+        )}
+      </View>
+    </NavigationContainer>
   );
 }
 
