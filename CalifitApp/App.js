@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import SplashScreen from './components/SplashScreen';
 import MainPage from './components/MainPage';
 import UserRegistration from './components/UserRegistration';
+import WelcomePage from './components/WelcomePage';
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -22,7 +23,8 @@ export default function App() {
         {loading ? (
           <SplashScreen />
         ) : (
-          <UserRegistration />
+          // <UserRegistration />
+          <WelcomePage />
         )}
       </View>
     </NavigationContainer>
