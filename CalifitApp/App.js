@@ -6,6 +6,7 @@ import MainPage from './components/MainPage';
 import UserRegistration from './components/UserRegistration';
 import WelcomePage from './components/WelcomePage';
 import NameRegistration from './components/NameRegistration';
+import AgeRegistration from './components/AgeRegistration';
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -26,7 +27,8 @@ export default function App() {
         ) : (
           // <UserRegistration />
           // <WelcomePage />
-          <NameRegistration />
+          // <NameRegistration />
+          <AgeRegistration />
         )}
       </View>
     </NavigationContainer>
