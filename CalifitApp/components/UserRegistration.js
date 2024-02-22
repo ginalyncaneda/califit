@@ -3,9 +3,6 @@ import { StyleSheet, View, TextInput, TouchableOpacity, Text, FlatList, Image } 
 import LiveVideoCapture from './LiveVideoCapture';
 
 export default function UserRegistration() {
-  const [firstname, setFirstname] = useState('');
-  const [lastname, setLastname] = useState('');
-  const [age, setAge] = useState('');
   const [gender, setGender] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -38,25 +35,7 @@ export default function UserRegistration() {
         <View>
           <Text style={styles.title}>Create an Account</Text>
           <View style={styles.formContainer}>
-            <TextInput
-              style={styles.input}
-              placeholder="First Name"
-              value={firstname}
-              onChangeText={setFirstname}
-            />
-            <TextInput
-              style={styles.input}
-              placeholder="Last Name"
-              value={lastname}
-              onChangeText={setLastname}
-            />
-            <TextInput
-              style={styles.input}
-              placeholder="Age"
-              value={age}
-              onChangeText={setAge}
-              keyboardType="numeric"
-            />
+        
             <TouchableOpacity
               style={styles.input}
               onPress={toggleGenderOptions}
