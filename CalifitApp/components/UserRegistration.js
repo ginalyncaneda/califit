@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, TextInput, TouchableOpacity, Text, FlatList, Image } from 'react-native';
 import LiveVideoCapture from './LiveVideoCapture';
+import applogo from '../images/califit-logo.png';
 
 export default function UserRegistration() {
   const [gender, setGender] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [genderOptionsVisible, setGenderOptionsVisible] = useState(false);
   const [showLiveVideoCapture, setShowLiveVideoCapture] = useState(false); 
 
@@ -33,9 +35,9 @@ export default function UserRegistration() {
         <LiveVideoCapture />
       ) : (
         <View>
-          <Text style={styles.title}>Create an Account</Text>
           <View style={styles.formContainer}>
-        
+          <Image source={applogo} style={styles.image} />
+          <Text style={styles.title}>Create an Account</Text>
             <TouchableOpacity
               style={styles.input}
               onPress={toggleGenderOptions}
@@ -69,8 +71,15 @@ export default function UserRegistration() {
               onChangeText={setPassword}
               secureTextEntry
             />
+            <TextInput
+              style={styles.input}
+              placeholder="Confirm Password"
+              value={confirmPassword}
+              onChangeText={setConfirmPassword}
+              secureTextEntry
+            />
             <TouchableOpacity style={styles.button} onPress={handleRegistration}>
-              <Text style={styles.buttonText}>Create Account</Text>
+              <Text style={styles.buttonText}>Sign Up</Text>
             </TouchableOpacity>
             <View style={styles.footer}>
               <Text style={styles.footerText}>Already have an account?</Text>
@@ -113,12 +122,18 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     padding: 20,
   },
+  image: {
+    width: 150,
+    height: 150,
+    alignSelf: 'center',
+  },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 10,
     marginTop: 20,
     marginLeft: 20,
+    color: '#820000',
+    textAlign: 'center',
   },
   input: {
     height: 40,
@@ -129,17 +144,17 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 10,
     backgroundColor: '#fff',
-    marginBottom: 2,
+    marginBottom: 5,
     alignSelf: 'center'
   },
   button: {
     backgroundColor: '#922B21',
-    borderRadius: 5,
+    borderRadius: 50,
     padding: 10,
     marginTop: 30,
     alignItems: 'center',
     alignSelf: 'center',
-    width: 200,
+    width: 300,
   },
   buttonText: {
     color: '#fff',
