@@ -5,6 +5,7 @@ import SplashScreen from './components/SplashScreen';
 import MainPage from './components/MainPage';
 import UserRegistration from './components/UserRegistration';
 import WelcomePage from './components/WelcomePage';
+import NameRegistration from './components/NameRegistration';
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -24,7 +25,8 @@ export default function App() {
           <SplashScreen />
         ) : (
           // <UserRegistration />
-          <WelcomePage />
+          // <WelcomePage />
+          <NameRegistration />
         )}
       </View>
     </NavigationContainer>
