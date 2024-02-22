@@ -25,10 +25,10 @@ export default function App() {
         {loading ? (
           <SplashScreen />
         ) : (
-          // <UserRegistration />
+          <UserRegistration />
           // <WelcomePage />
           // <NameRegistration />
-          <AgeRegistration />
+          // <AgeRegistration />
         )}
       </View>
     </NavigationContainer>
