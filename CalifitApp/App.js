@@ -7,6 +7,7 @@ import UserRegistration from './components/UserRegistration';
 import WelcomePage from './components/WelcomePage';
 import NameRegistration from './components/NameRegistration';
 import AgeRegistration from './components/AgeRegistration';
+import GenderRegistration from './components/GenderRegistration';
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -25,10 +26,11 @@ export default function App() {
         {loading ? (
           <SplashScreen />
         ) : (
-          <UserRegistration />
+          // <UserRegistration />
           // <WelcomePage />
           // <NameRegistration />
           // <AgeRegistration />
+          <GenderRegistration />
         )}
       </View>
     </NavigationContainer>
