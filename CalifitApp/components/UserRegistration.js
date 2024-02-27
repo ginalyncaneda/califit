@@ -7,7 +7,6 @@ export default function UserRegistration() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [genderOptionsVisible, setGenderOptionsVisible] = useState(false);
   const [showLiveVideoCapture, setShowLiveVideoCapture] = useState(false); 
 
   const handleRegistration = () => {
@@ -126,22 +125,6 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: 'bold',
     fontSize: 16,
-  },
-  genderOptions: {
-    position: 'absolute',
-    top: 80,
-    left: 20,
-    width: 150,
-    backgroundColor: '#fff',
-    borderRadius: 5,
-    borderWidth: 1,
-    borderColor: '#ccc',
-    zIndex: 2,
-  },
-  genderOption: {
-    padding: 10,
-    borderBottomWidth: 1,
-    borderColor: '#ccc',
   },
   footer: {
     flexDirection: 'row',
