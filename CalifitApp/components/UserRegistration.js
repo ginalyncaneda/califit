@@ -4,7 +4,6 @@ import LiveVideoCapture from './LiveVideoCapture';
 import applogo from '../images/califit-logo.png';
 
 export default function UserRegistration() {
-  const [gender, setGender] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -15,20 +14,6 @@ export default function UserRegistration() {
     setShowLiveVideoCapture(true);
   };
 
-  const toggleGenderOptions = () => {
-    setGenderOptionsVisible(!genderOptionsVisible);
-  };
-
-  const selectGender = (selectedGender) => {
-    setGender(selectedGender);
-    toggleGenderOptions();
-  };
-
-  const genderOptions = [
-    { label: 'Male', value: 'Male' },
-    { label: 'Female', value: 'Female' },
-  ];
-
   return (
     <View style={styles.container}>
       {showLiveVideoCapture ? (
@@ -38,25 +23,6 @@ export default function UserRegistration() {
           <View style={styles.formContainer}>
           <Image source={applogo} style={styles.image} />
           <Text style={styles.title}>Create an Account</Text>
-            <TouchableOpacity
-              style={styles.input}
-              onPress={toggleGenderOptions}
-            >
-              <Text>{gender || 'Select Gender'}</Text>
-            </TouchableOpacity>
-            {genderOptionsVisible && (
-              <View style={styles.genderOptions}>
-                <FlatList
-                  data={genderOptions}
-                  keyExtractor={(item) => item.value}
-                  renderItem={({ item }) => (
-                    <TouchableOpacity onPress={() => selectGender(item.value)}>
-                      <Text style={styles.genderOption}>{item.label}</Text>
-                    </TouchableOpacity>
-                  )}
-                />
-              </View>
-            )}
             <TextInput
               style={styles.input}
               placeholder="Email Address"
