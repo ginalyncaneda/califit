@@ -18,6 +18,10 @@ export default function UserRegistration() {
       {showLiveVideoCapture ? (
         <LiveVideoCapture />
       ) : (
+        <View style={styles.container}>
+      {showLiveVideoCapture ? (
+        <LiveVideoCapture />
+      ) : (
         <View>
           <View style={styles.formContainer}>
           <Image source={applogo} style={styles.image} />

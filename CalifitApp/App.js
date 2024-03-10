@@ -35,6 +35,7 @@ export default function App() {
           // <GenderRegistration />
           // <Login />
           <ExerciseSelection />
+
         )}
       </View>
     </NavigationContainer>
