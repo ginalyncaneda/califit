@@ -8,6 +8,8 @@ import WelcomePage from './components/WelcomePage';
 import NameRegistration from './components/NameRegistration';
 import AgeRegistration from './components/AgeRegistration';
 import GenderRegistration from './components/GenderRegistration';
+import Login from './components/Login';
+import ExerciseSelection from './components/ExerciseSelection';
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -30,7 +32,10 @@ export default function App() {
           // <WelcomePage />
           // <NameRegistration />
           // <AgeRegistration />
-          <GenderRegistration />
+          // <GenderRegistration />
+          // <Login />
+          <ExerciseSelection />
+
         )}
       </View>
     </NavigationContainer>

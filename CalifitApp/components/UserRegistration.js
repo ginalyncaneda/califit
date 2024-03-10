@@ -4,33 +4,21 @@ import LiveVideoCapture from './LiveVideoCapture';
 import applogo from '../images/califit-logo.png';
 
 export default function UserRegistration() {
-  const [gender, setGender] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [genderOptionsVisible, setGenderOptionsVisible] = useState(false);
   const [showLiveVideoCapture, setShowLiveVideoCapture] = useState(false); 
 
   const handleRegistration = () => {
     setShowLiveVideoCapture(true);
   };
 
-  const toggleGenderOptions = () => {
-    setGenderOptionsVisible(!genderOptionsVisible);
-  };
-
-  const selectGender = (selectedGender) => {
-    setGender(selectedGender);
-    toggleGenderOptions();
-  };
-
-  const genderOptions = [
-    { label: 'Male', value: 'Male' },
-    { label: 'Female', value: 'Female' },
-  ];
-
   return (
     <View style={styles.container}>
+      {showLiveVideoCapture ? (
+        <LiveVideoCapture />
+      ) : (
+        <View style={styles.container}>
       {showLiveVideoCapture ? (
         <LiveVideoCapture />
       ) : (
@@ -38,25 +26,6 @@ export default function UserRegistration() {
           <View style={styles.formContainer}>
           <Image source={applogo} style={styles.image} />
           <Text style={styles.title}>Create an Account</Text>
-            <TouchableOpacity
-              style={styles.input}
-              onPress={toggleGenderOptions}
-            >
-              <Text>{gender || 'Select Gender'}</Text>
-            </TouchableOpacity>
-            {genderOptionsVisible && (
-              <View style={styles.genderOptions}>
-                <FlatList
-                  data={genderOptions}
-                  keyExtractor={(item) => item.value}
-                  renderItem={({ item }) => (
-                    <TouchableOpacity onPress={() => selectGender(item.value)}>
-                      <Text style={styles.genderOption}>{item.label}</Text>
-                    </TouchableOpacity>
-                  )}
-                />
-              </View>
-            )}
             <TextInput
               style={styles.input}
               placeholder="Email Address"
@@ -130,7 +99,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginTop: 20,
+    marginBottom: 10,
     marginLeft: 20,
     color: '#820000',
     textAlign: 'center',
@@ -160,22 +129,6 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: 'bold',
     fontSize: 16,
-  },
-  genderOptions: {
-    position: 'absolute',
-    top: 80,
-    left: 20,
-    width: 150,
-    backgroundColor: '#fff',
-    borderRadius: 5,
-    borderWidth: 1,
-    borderColor: '#ccc',
-    zIndex: 2,
-  },
-  genderOption: {
-    padding: 10,
-    borderBottomWidth: 1,
-    borderColor: '#ccc',
   },
   footer: {
     flexDirection: 'row',
