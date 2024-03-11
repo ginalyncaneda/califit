@@ -29,6 +29,7 @@ export default function App() {
         <Stack.Screen name="ExerciseSelection" component={ExerciseSelection} />
         {/* Add other screens as needed */}
       </Stack.Navigator>
+
     </NavigationContainer>
   );
 }
