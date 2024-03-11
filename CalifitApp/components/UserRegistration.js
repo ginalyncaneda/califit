@@ -1,75 +1,66 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, TextInput, TouchableOpacity, Text, FlatList, Image } from 'react-native';
-import LiveVideoCapture from './LiveVideoCapture';
 import applogo from '../images/califit-logo.png';
 
-export default function UserRegistration({ navigation }) { // Add navigation prop
-  // const navigation = useNavigation(); // Uncomment if UserRegistration is not a direct child of the navigator
-  
+export default function UserRegistration({ navigation }) {  
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
-    const [showLiveVideoCapture, setShowLiveVideoCapture] = useState(false);
   
     const handleRegistration = () => {
-      // setShowLiveVideoCapture(true); // Assuming you want to navigate instead of showing live video capture
-      navigation.navigate('NameRegistration'); // Use the name you used in the Stack.Screen for NameRegistration
+      navigation.navigate('NameRegistration');
     };
   
 
   return (
     <View style={styles.container}>
-      {showLiveVideoCapture ? (
-        <LiveVideoCapture />
-      ) : (
-          <View style={styles.formContainer}>
-            <Image source={applogo} style={styles.image} />
-            <Text style={styles.title}>Create an Account</Text>
-            <TextInput
-              style={styles.input}
-              placeholder="Email Address"
-              value={email}
-              onChangeText={setEmail}
-              keyboardType="email-address"
-            />
-            <TextInput
-              style={styles.input}
-              placeholder="Password"
-              value={password}
-              onChangeText={setPassword}
-              secureTextEntry
-            />
-            <TextInput
-              style={styles.input}
-              placeholder="Confirm Password"
-              value={confirmPassword}
-              onChangeText={setConfirmPassword}
-              secureTextEntry
-            />
-            <TouchableOpacity style={styles.button} onPress={handleRegistration}>
-              <Text style={styles.buttonText}>Sign Up</Text>
-            </TouchableOpacity>
-            <View style={styles.footer}>
-              <Text style={styles.footerText}>Already have an account?</Text>
-              <TouchableOpacity>
-                <Text style={styles.footerLink}>Sign In</Text>
-              </TouchableOpacity>
-            </View>
-            <View style={styles.orContainer}>
-              <View style={styles.line} />
-              <Text style={styles.orText}>OR</Text>
-              <View style={styles.line} />
-            </View>
-            <TouchableOpacity style={styles.socialButton}>
-              <Image source={require('../images/google.png')} style={styles.socialIcon} />
-              <Text style={styles.socialButtonText}>Sign up with Google</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.socialButton}>
-              <Image source={require('../images/fb.png')} style={styles.socialIcon} />
-              <Text style={styles.socialButtonText}>Sign up with Facebook</Text>
+        <View style={styles.formContainer}>
+          <Image source={applogo} style={styles.image} />
+          <Text style={styles.title}>Create an Account</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Email Address"
+            value={email}
+            onChangeText={setEmail}
+            keyboardType="email-address"
+          />
+          <TextInput
+            style={styles.input}
+            placeholder="Password"
+            value={password}
+            onChangeText={setPassword}
+            secureTextEntry
+          />
+          <TextInput
+            style={styles.input}
+            placeholder="Confirm Password"
+            value={confirmPassword}
+            onChangeText={setConfirmPassword}
+            secureTextEntry
+          />
+          <TouchableOpacity style={styles.button} onPress={handleRegistration}>
+            <Text style={styles.buttonText}>Sign Up</Text>
+          </TouchableOpacity>
+          <View style={styles.footer}>
+            <Text style={styles.footerText}>Already have an account?</Text>
+            <TouchableOpacity>
+              <Text style={styles.footerLink}>Sign In</Text>
             </TouchableOpacity>
           </View>
-      )}
+          <View style={styles.orContainer}>
+            <View style={styles.line} />
+            <Text style={styles.orText}>OR</Text>
+            <View style={styles.line} />
+          </View>
+          <TouchableOpacity style={styles.socialButton}>
+            <Image source={require('../images/google.png')} style={styles.socialIcon} />
+            <Text style={styles.socialButtonText}>Sign up with Google</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.socialButton}>
+            <Image source={require('../images/fb.png')} style={styles.socialIcon} />
+            <Text style={styles.socialButtonText}>Sign up with Facebook</Text>
+          </TouchableOpacity>
+        </View>
     </View>
   );
 }
