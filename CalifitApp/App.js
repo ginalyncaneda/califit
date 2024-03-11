@@ -12,6 +12,7 @@ import GenderRegistration from './components/GenderRegistration';
 import Login from './components/Login';
 import ExerciseSelection from './components/ExerciseSelection';
 import LiveVideoCapture from './components/LiveVideoCapture';
+import LiveVideo from './components/LiveVideo';
 
 const Stack = createNativeStackNavigator();
 
@@ -28,7 +29,7 @@ export default function App() {
         <Stack.Screen name="GenderRegistration" component={GenderRegistration} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="ExerciseSelection" component={ExerciseSelection} />
-        <Stack.Screen name="LiveVideoCapture" component={LiveVideoCapture} />
+        <Stack.Screen name="LiveVideo" component={LiveVideo} />
         {/* Add other screens as needed */}
       </Stack.Navigator>
 
