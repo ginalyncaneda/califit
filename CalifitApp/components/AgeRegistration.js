@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native';
 import agepic from '../images/age.png';
-const AgeRegistration = () => {
-    const [age, setAge] = useState('');
+
+const AgeRegistration = ({ navigation }) => { // Add navigation prop here
+  const [age, setAge] = useState('');
+
+  const handleNext = () => {
+      navigation.navigate('GenderRegistration'); // Navigate to GenderRegistration screen
+  };
 
     return (
         <View style={styles.container}>
@@ -17,7 +22,7 @@ const AgeRegistration = () => {
               onChangeText={setAge}
               keyboardType="numeric"
             />
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button} onPress={handleNext}>
                     <Text style={styles.buttonText}>Next</Text>
                 </TouchableOpacity>
         </View>
