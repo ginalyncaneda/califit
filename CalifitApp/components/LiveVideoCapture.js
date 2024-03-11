@@ -24,22 +24,9 @@ const LiveVideoCapture = () => {
           </Text>
         </View>
       </View>
-
       <TouchableOpacity style={styles.recordButton} onPress={handleToggleRecording}>
         <View style={[styles.innerRecordButton, isRecording ? styles.recordingIndicator : null]} />
       </TouchableOpacity>
-
-      <View style={styles.exerciseSelectionContainer}>
-        <TouchableOpacity style={styles.exerciseSelectionIcon}>
-          <FontAwesome5 name="dumbbell" size={24} color="white" />
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.exerciseSelectionIcon}>
-          <MaterialCommunityIcons name="run" size={24} color="white" />
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.exerciseSelectionIcon}>
-          <MaterialIcons name="fitness-center" size={24} color="white" />
-        </TouchableOpacity>
-      </View>
     </View>
   );
 };
@@ -48,6 +35,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'flex-end',
+    backgroundColor: '#FFD700',
   },
   overlay: {
     ...StyleSheet.absoluteFillObject,
@@ -56,12 +44,12 @@ const styles = StyleSheet.create({
   },
   exerciseArea: {
     borderWidth: 2,
-    backgroundColor: '#800000',
+    backgroundColor: '#000000',
     borderColor: 'black',
     padding: 20,
     width: Dimensions.get('window').width - 40,
-    height: Dimensions.get('window').height / 1.4,
-    marginBottom: 160,
+    height: Dimensions.get('window').height / 1.2,
+    marginBottom: 80,
   },
   overlayText: {
     color: 'white',
@@ -69,7 +57,7 @@ const styles = StyleSheet.create({
   },
   recordButton: {
     alignSelf: 'center',
-    marginBottom: 10,
+    marginBottom: 20,
     width: 70,
     height: 70,
     borderRadius: 40,
@@ -85,21 +73,6 @@ const styles = StyleSheet.create({
   },
   recordingIndicator: {
     backgroundColor: '#922B21',
-  },
-  exerciseSelectionContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    marginBottom: 0,
-  },
-  exerciseSelectionIcon: {
-    width: 70,
-    height: 70,
-    borderRadius: 15,
-    backgroundColor: '#922B21',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: 20,
-    marginLeft: 20,
   },
 });
 
