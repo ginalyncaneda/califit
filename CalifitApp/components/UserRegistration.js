@@ -3,25 +3,28 @@ import { StyleSheet, View, TextInput, TouchableOpacity, Text, FlatList, Image } 
 import LiveVideoCapture from './LiveVideoCapture';
 import applogo from '../images/califit-logo.png';
 
-export default function UserRegistration() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [showLiveVideoCapture, setShowLiveVideoCapture] = useState(false); 
-
-  const handleRegistration = () => {
-    setShowLiveVideoCapture(true);
-  };
+export default function UserRegistration({ navigation }) { // Add navigation prop
+  // const navigation = useNavigation(); // Uncomment if UserRegistration is not a direct child of the navigator
+  
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [showLiveVideoCapture, setShowLiveVideoCapture] = useState(false);
+  
+    const handleRegistration = () => {
+      // setShowLiveVideoCapture(true); // Assuming you want to navigate instead of showing live video capture
+      navigation.navigate('NameRegistration'); // Use the name you used in the Stack.Screen for NameRegistration
+    };
+  
 
   return (
     <View style={styles.container}>
       {showLiveVideoCapture ? (
         <LiveVideoCapture />
       ) : (
-        <View>
           <View style={styles.formContainer}>
-          <Image source={applogo} style={styles.image} />
-          <Text style={styles.title}>Create an Account</Text>
+            <Image source={applogo} style={styles.image} />
+            <Text style={styles.title}>Create an Account</Text>
             <TextInput
               style={styles.input}
               placeholder="Email Address"
@@ -66,7 +69,6 @@ export default function UserRegistration() {
               <Text style={styles.socialButtonText}>Sign up with Facebook</Text>
             </TouchableOpacity>
           </View>
-        </View>
       )}
     </View>
   );
@@ -76,14 +78,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: 'transparent',
+    backgroundColor: '#F9E79F',
   },
   formContainer: {
     flex: 1,
     width: '100%',
     maxWidth: 400,
     alignSelf: 'center',
-    backgroundColor: 'transparent',
+    backgroundColor: '#F9E79F',
     borderRadius: 10,
     padding: 20,
   },
