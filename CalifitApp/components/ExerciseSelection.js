@@ -18,6 +18,7 @@ const ExerciseSelection = ({ navigation }) => {
     const handleProceed = () => {
         console.log(`Proceed with ${selectedExercise}`);
         // Here you can navigate to the next screen or perform any action with the selected exercise
+        navigation.navigate('LiveVideoCapture');
     };
 
     // Function to determine button style based on selection
