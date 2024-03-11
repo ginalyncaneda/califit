@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, View, ActivityIndicator } from 'react-native';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SplashScreen from './components/SplashScreen';
 import MainPage from './components/MainPage';
 import UserRegistration from './components/UserRegistration';
@@ -11,33 +12,24 @@ import GenderRegistration from './components/GenderRegistration';
 import Login from './components/Login';
 import ExerciseSelection from './components/ExerciseSelection';
 
+const Stack = createNativeStackNavigator();
+
 export default function App() {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 3000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
     <NavigationContainer>
-      <View style={[styles.container, { backgroundColor: '#F9E79F' }]}>
-        {loading ? (
-          <SplashScreen />
-        ) : (
-          // <UserRegistration />
-          // <WelcomePage />
-          // <NameRegistration />
-          // <AgeRegistration />
-          // <GenderRegistration />
-          // <Login />
-          <ExerciseSelection />
+      <Stack.Navigator initialRouteName="SplashScreen" screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="SplashScreen" component={SplashScreen} />
+        <Stack.Screen name="WelcomePage" component={WelcomePage} />
+        <Stack.Screen name="MainPage" component={MainPage} />
+        <Stack.Screen name="UserRegistration" component={UserRegistration} />
+        <Stack.Screen name="NameRegistration" component={NameRegistration} />
+        <Stack.Screen name="AgeRegistration" component={AgeRegistration} />
+        <Stack.Screen name="GenderRegistration" component={GenderRegistration} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="ExerciseSelection" component={ExerciseSelection} />
+        {/* Add other screens as needed */}
+      </Stack.Navigator>
 
-        )}
-      </View>
     </NavigationContainer>
   );
 }

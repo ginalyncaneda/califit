@@ -1,33 +1,41 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native';
 import namepic from '../images/name.png';
+// If NameRegistration is not directly rendered by a Stack.Screen, you might need to import useNavigation
+// import { useNavigation } from '@react-navigation/native';
 
-const NameRegistration = () => {
+const NameRegistration = ({ navigation }) => { // Add navigation prop here
+// const navigation = useNavigation(); // Uncomment if NameRegistration is not a direct child of the navigator
+
     const [firstname, setFirstname] = useState('');
     const [lastname, setLastname] = useState('');
 
+    const handleNext = () => {
+        navigation.navigate('AgeRegistration'); // Use the name you used for the AgeRegistration screen in your stack navigator
+    };
+
   return (
     <View style={styles.container}>
-    <View style={styles.formcontainer}>
+      <View style={styles.formContainer}>
         <Text style={styles.header}>Sign Up</Text>
         <Text style={styles.title}>What is your name?</Text>
         <Image source={namepic} style={styles.image} />
         <TextInput
-              style={styles.input}
-              placeholder="First Name"
-              value={firstname}
-              onChangeText={setFirstname}
-            />
-            <TextInput
-              style={styles.input}
-              placeholder="Last Name"
-              value={lastname}
-              onChangeText={setLastname}
-            />   
-            <TouchableOpacity style={styles.button}>
-                <Text style={styles.buttonText}>Next</Text>
-            </TouchableOpacity>
-    </View>
+          style={styles.input}
+          placeholder="First Name"
+          value={firstname}
+          onChangeText={setFirstname}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Last Name"
+          value={lastname}
+          onChangeText={setLastname}
+        />
+        <TouchableOpacity style={styles.button} onPress={handleNext}>
+          <Text style={styles.buttonText}>Next</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
