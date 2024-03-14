@@ -13,6 +13,7 @@ import Login from './components/Login';
 import ExerciseSelection from './components/ExerciseSelection';
 import LiveVideoCapture from './components/LiveVideoCapture';
 import LiveVideo from './components/LiveVideo';
+import Dashboard from './components/Dashboard';
 
 const Stack = createNativeStackNavigator();
 
@@ -30,6 +31,7 @@ export default function App() {
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="ExerciseSelection" component={ExerciseSelection} />
         <Stack.Screen name="LiveVideo" component={LiveVideo} />
+        <Stack.Screen name="Dashboard" component={Dashboard} />
         {/* Add other screens as needed */}
       </Stack.Navigator>
 
