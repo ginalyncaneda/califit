@@ -23,7 +23,7 @@ const GenderRegistration = ({ navigation }) => { // Add navigation prop here
   ];
 
   const handleRegistration = () => {
-    navigation.navigate('ExerciseSelection'); // Navigate to ExerciseSelection screen
+    navigation.navigate('Dashboard'); // Navigate to Dashboard screen
   };
 
   return (

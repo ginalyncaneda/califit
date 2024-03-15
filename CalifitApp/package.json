@@ -22,6 +22,7 @@
     "react-native-camera": "^4.2.1",
     "react-native-mediapipe": "^0.1.0",
     "react-native-picker-select": "^9.0.0",
+    "react-native-svg": "13.9.0",
     "react-native-vision-camera": "^3.6.17"
   },
   "devDependencies": {

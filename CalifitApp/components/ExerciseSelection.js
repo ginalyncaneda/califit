@@ -96,6 +96,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         borderRadius: 10,
         padding: 20,
+        backgroundColor: 'F9E79F',
     },
     title: {
         fontSize: 33,
