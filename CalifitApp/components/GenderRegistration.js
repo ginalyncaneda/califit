@@ -23,7 +23,9 @@ const GenderRegistration = ({ navigation }) => { // Add navigation prop here
   ];
 
   const handleRegistration = () => {
-    navigation.navigate('Dashboard'); // Navigate to Dashboard screen
+    // Correcting the navigate call to match the screen name defined in Tabs
+    navigation.navigate('MainApp', { screen: 'Home' });
+    // Navigate to Dashboard screen
   };
 
   return (
