@@ -7,7 +7,7 @@ const ExerciseCard = ({ image, title }) => {
             <View style={styles.cardContent}>
                 <Text style={styles.cardTitle}>{title}</Text>
                 <TouchableOpacity style={styles.startButton}>
-                    <Text style={styles.startButtonText}>Let's Start</Text>
+                    <Text style={styles.startButtonText}>Learn</Text>
                 </TouchableOpacity>
 
             </View>

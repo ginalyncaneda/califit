@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, TextInput, FlatList, TouchableOpacity } from 'react-native';
 import genderpic from '../images/gender.png';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 const GenderRegistration = ({ navigation }) => { // Add navigation prop here
   // const navigation = useNavigation(); // Uncomment if GenderRegistration is not a direct child of the navigator
@@ -23,15 +24,18 @@ const GenderRegistration = ({ navigation }) => { // Add navigation prop here
   ];
 
   const handleRegistration = () => {
-    // Correcting the navigate call to match the screen name defined in Tabs
     navigation.navigate('MainApp', { screen: 'Home' });
-    // Navigate to Dashboard screen
   };
 
   return (
     <View style={styles.container}>
       <View style={styles.formcontainer}>
-        <Text style={styles.header}>Sign Up</Text>
+      <View style={styles.headerContainer}>
+          <TouchableOpacity onPress={() => navigation.goBack()} style={styles.iconContainer}>
+            <FontAwesome5 name="chevron-left" size={20} color="#FFF" />
+          </TouchableOpacity>
+          <Text style={styles.header}>Sign Up</Text>
+        </View>
         <Text style={styles.title}>What is your gender?</Text>
         <Image source={genderpic} style={styles.image} />
         <TouchableOpacity
@@ -77,13 +81,20 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     padding: 20,
   },
+  headerContainer: {
+    marginTop: 30,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  iconContainer: {
+    marginRight: 10,
+  },
   header: {
-    fontSize: 12,
+    fontSize: 16,
     fontWeight: 'bold',
-    marginBottom: 10,
-    marginLeft: 20,
-    textAlign: 'center',
     color: '#ffffff',
+    textAlign: 'center',
+    flex: 1,
   },
   title: {
     fontSize: 45,
