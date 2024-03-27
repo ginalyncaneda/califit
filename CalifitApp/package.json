@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@mediapipe/pose": "^0.5.1675469404",
+    "@react-navigation/bottom-tabs": "^6.5.20",
     "@react-navigation/native": "^6.1.9",
     "@react-navigation/native-stack": "^6.9.24",
     "@react-navigation/stack": "^6.3.20",
