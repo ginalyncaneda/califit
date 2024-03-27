@@ -1,66 +1,57 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
-import ExerciseCard from './ExerciseCard';
-import tc from '../images/tabletopcrunch.png';
-import ip from '../images/inclinedpushup.png';
-import ss from '../images/sumosquat.png';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import ExerciseCard from './ExerciseCard'; // Adjust the path as necessary
+import ip from '../images/inclinedpushup.png'; // Adjust the path
+import ss from '../images/sumosquat.png'; // Adjust the path
+import tc from '../images/tabletopcrunch.png'; // Adjust the path
 
-const TutorialScreen = () => {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Tutorial</Text>
-      
-    </View>
-  );
+const TutorialScreen = ({ navigation }) => {
+    const handleExerciseSelect = (exercise) => {
+        console.log('Selected Exercise:', exercise);
+        // Implement navigation or any other action when an exercise card is pressed
+    };
+
+    return (
+        <ScrollView style={styles.container}>
+            <View style={styles.exercisesContainer}>
+                <Text style={styles.sectionTitle}>Exercises</Text>
+                <ExerciseCard
+                    image={ip}
+                    title="Inclined Pushup"
+                    onPress={() => handleExerciseSelect('Inclined Pushup')}
+                />
+                <ExerciseCard
+                    image={ss}
+                    title="Sumo Squat"
+                    onPress={() => handleExerciseSelect('Sumo Squat')}
+                />
+                <ExerciseCard
+                    image={tc}
+                    title="Tabletop Crunch"
+                    onPress={() => handleExerciseSelect('Tabletop Crunch')}
+                />
+                {/* Add more ExerciseCard components for other exercises */}
+            </View>
+        </ScrollView>
+    );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F9E79F', // You can adjust the background color as needed
-  },
-  text: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#820000', // Adjust the text color as needed
-  },
-  button: {
-      backgroundColor: '#9F0202',
-      paddingVertical: 10,
-      paddingHorizontal: 30,
-      borderRadius: 30,
-      marginTop: 10,
-  },
-  buttonText: {
-      fontSize: 16,
-      color: '#FFF',
-      fontWeight: 'bold',
-  },
-  workoutCard: {
-      backgroundColor: '#FFF',
-      padding: 15,
-      borderRadius: 10,
-      marginRight: 10, // Space between cards
-      width: 125, // Set a fixed width for each card
-      alignItems: 'center', // Center content horizontally
-      justifyContent: 'center', // Center content vertically
-      marginTop: 10,
-  },
-  workoutName: {
-      fontSize: 16,
-      color: '#820000',
-      fontWeight: 'bold',
-      marginBottom: 5,
-      textAlign: 'center',
-  },
-  workoutProgress: {
-      fontSize: 20,
-      color: '#820000',
-      fontWeight: 'bold',
-
-  },
+    container: {
+        flex: 1,
+        backgroundColor: '#F9E79F',
+      },
+    exercisesContainer: {
+        margin: 20,
+    },
+    sectionTitle: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        marginBottom: 20,
+        marginTop: 40,
+        marginLeft: 30,
+        color: '#820000',
+    },
 });
 
 export default TutorialScreen;
