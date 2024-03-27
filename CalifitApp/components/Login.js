@@ -2,18 +2,23 @@ import React, { useState } from 'react';
 import { StyleSheet, View, TextInput, TouchableOpacity, Text, FlatList, Image } from 'react-native';
 import applogo from '../images/califit-logo.png';
 
-export default function Login() {
+export default function Login({ navigation }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const handleSignIn = () => {
         // Add your sign-in logic here
         console.log('Signing in with:', email, password);
+        navigation.navigate('MainApp', { screen: 'Home' });
     };
+
+    const registrationPage = () => {
+        navigation.navigate('UserRegistration');
+      };
 
     return (
         <View style={styles.container}>
-            <View>
+            
                 <View style={styles.formContainer}>
                     <Image source={applogo} style={styles.image} />
                     <Text style={styles.title}>Sign In</Text>
@@ -37,7 +42,7 @@ export default function Login() {
                     <View style={styles.footer}>
                         <Text style={styles.footerText}>Don't have an account?</Text>
                         <TouchableOpacity>
-                            <Text style={styles.footerLink}>Sign Up</Text>
+                            <Text style={styles.footerLink} onPress={registrationPage}>Sign Up</Text>
                         </TouchableOpacity>
                     </View>
                     <View style={styles.orContainer}>
@@ -54,7 +59,7 @@ export default function Login() {
                         <Text style={styles.socialButtonText}>Sign in with Facebook</Text>
                     </TouchableOpacity>
                 </View>
-            </View>
+            
         </View>
     );
 }
@@ -63,14 +68,13 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 20,
-        backgroundColor: 'transparent',
+        backgroundColor: '#F9E79F',
     },
     formContainer: {
         flex: 1,
         width: '100%',
         maxWidth: 400,
         alignSelf: 'center',
-        backgroundColor: 'transparent',
         borderRadius: 10,
         padding: 20,
     },

@@ -11,6 +11,9 @@ export default function UserRegistration({ navigation }) {
       navigation.navigate('NameRegistration');
     };
   
+    const loginPage = () => {
+      navigation.navigate('Login');
+    };
 
   return (
     <View style={styles.container}>
@@ -44,7 +47,7 @@ export default function UserRegistration({ navigation }) {
           <View style={styles.footer}>
             <Text style={styles.footerText}>Already have an account?</Text>
             <TouchableOpacity>
-              <Text style={styles.footerLink}>Sign In</Text>
+              <Text style={styles.footerLink} onPress={loginPage}>Sign In</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.orContainer}>
